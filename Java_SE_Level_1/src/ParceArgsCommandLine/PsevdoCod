@@ -1,0 +1,63 @@
+Условие задачи:
+	1)Класс ComLineParcer разбирает (parce)  command line's args; (например: : -wOutfileName или -rInfileName или ?)
+	2)Переменные:
+			String[] keys
+			String[] delim
+			enum SwitchStatus{NoError,Error,ShowUsage}
+	3)Два конструктора (набор разделителей"/","-", набор ключей"r","w","?" ),
+			конструктор(args line).
+	4)Метода:
+			void OnUsage(String errorKey)-подсказку по использованию программы
+			{	if(errorKey!=NULL)
+				       	System.out.println("формат ком.строки: имяПрограммы [-r<input-fileName>] [-w<output-fileName>]");
+						System.out.println("   -?  показать Help файл");
+						System.out.println("   -r  задать имя входного файла");
+						System.out.println("   -w  выполнить вывод в указанный файл");
+			}
+			
+			public enum OnSwitch(String key, keyValue) -отрабатывает команды для каждого ключа
+			{							возвращает SwichStatus
+						print(key,keyValue)
+						return SwitchStatus="NoError;
+			}
+			
+			boolean Parce(String[] args)
+			{			SwichStatus ss=NoError
+						int argNum
+						boolean isKey=false
+						for(argNum=0;(ss==SwitchStatus.NoError) && (argNum<args.leng)){
+							boolean isDelimeter=false;
+							for(int n=0;!isDelimeter && (n<dilimeters.length); n++)
+									isDelimeter=args[argNum].regionMatches(0,delimeters[n],0,1)						
+							if (isDelimeter) 
+							{
+								// проверка наличия правильного ключа
+								for(int i=0;!isKey&&(i<keyLength);i++)
+									isKey=//«isKey» результат сравнения двух ключей предварительно приведя их к
+										//верхнему регистру(используйте метод regionMatches).
+										//  Первый ключ для сравнения берётся из массива «args», 
+										//причём не с нулевой позиции, а второй из массива «keys» 
+										if(isKey==true) break;
+								}
+								if(isKet=false) {
+									ss=SwitchStatus=Error
+								}
+							}
+							else {
+								ss= SwitchStatus.Error;
+								break;
+							}
+						}
+						
+						//Завершение разбора командной строки
+						if(ss==SwitchStatus.ShowUsage) OnUsage(NULL)
+						
+						if(ss == SwitchStatus.Error) OnUsage((argNum == args.length) ? null : args[argNum]);
+						
+						ruturn ss ==SwitchStatus.NoError;
+
+			}			
+						
+	
+
+			
