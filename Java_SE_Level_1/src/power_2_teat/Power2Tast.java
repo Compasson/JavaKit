@@ -10,8 +10,8 @@ public class Power2Tast {
 		// 0000000000000 - & конкатенация этих двух чисел равна 0;
 		for(int x=0;x<1024;x++) {
 			//if((x&(x-1))==0)
-			//if((x&-x)==x)
-			System.out.println(x);
+			if((x&-x)==x)
+				System.out.println(x);
 		}	
 	}
 

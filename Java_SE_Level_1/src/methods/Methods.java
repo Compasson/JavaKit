@@ -1,10 +1,11 @@
 package methods;
 
-import static java.lang.System.out;
+import static java.lang.System.out; //Упрощает вывод
 
 
 public class Methods {
 	
+	// Наибольший общий делитель
 	public static int GCD(int a, int b)
 	{
 		int k;
@@ -49,8 +50,54 @@ public class Methods {
 		out.printf("Привет, %s - %d!\n", name, age);
 		//return;
 	}
-
+	
+	// Инкрементируется копия так как тип данных явный
+	public static void test1(int a) {
+		a++;
+		out.printf("test 1 a = %d\n",a);
+	}
+	
+	// Инкрементируется значение передаваемой ссылки
+	public static void test2(int[] a) {
+		a[0]++;
+		out.printf("test 2 a[0]= %d\n", a[0]);
+	}
+	
+	// В случае строки: Изменяется копия передаваемой ссылки
+	public static void test3(String a) {
+		a+="!";
+		out.printf("test 3 a = %s\n", a);
+	}
+	
+	// Для изменения строк используем StringBuilder
+	public static void test4(StringBuilder a) {
+		a.append("!");
+		out.printf("test 4 a = %s\n", a);
+	}
+	
 	public static void main(String[] args) {
+		
+		{	// test OK
+			int[] a= {10};
+			test2(a);
+			out.printf("main 2 a[0] = %d\n", a[0]);
+		}
+		{	// test falure
+			int a =10;
+			test1(a);
+			out.printf("main 1 a= %d\n",a);
+		}
+		{	// test falure
+			String a ="Masha";
+			test3(a);
+			out.printf("main 3 a= %s\n", a);
+		}
+		{	// test OK
+			StringBuilder a = new StringBuilder("Pasha");
+			test4(a);
+			out.printf("main 4 a = %s\n", a);
+		}
+		
 		//Program p = new Program();
 		//p.sayHello();
 		//Program.sayHello();
