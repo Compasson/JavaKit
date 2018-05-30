@@ -1,4 +1,4 @@
-package power_2teat;
+package power_2_teat;
 
 public class Power2Tast {
 
