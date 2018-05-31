@@ -2,9 +2,15 @@ package ru.vasichkin;
 
 import ru.vasichkin.staff.Person;
 
+import static java.lang.Math.*;
+
 public class Program {
 
 	public static void main(String[] args) {
+		
+		double x=2;
+		double y=sin(2*PI*log(x)); //Импортируем статические поля или методы ...Math.*;
+		
 		/*
 		 * Класс с полями name and age
 		 * 
