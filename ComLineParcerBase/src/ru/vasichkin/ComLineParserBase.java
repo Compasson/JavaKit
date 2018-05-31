@@ -1,8 +1,8 @@
 package ru.vasichkin;
 
 public class ComLineParserBase {
-    private String[] keys;           // ключи
-    private String[] delimeters;     // разделители  "/", "-"
+	public String[] keys;           // ключи
+	public String[] delim;     // разделители  "/", "-"
 
     protected enum SwitchStatus { NoError, Error, ShowUsage };
 
@@ -11,18 +11,11 @@ public class ComLineParserBase {
     }
     public ComLineParserBase(String[] keys, String[] delimeters) {
         this.keys = keys;
-        this.delimeters   = delimeters;
+        this.delim   = delimeters;
     }
 
-    protected void OnUsage(String errorKey){
-//        if (errorKey != null)
-//            System.out.println("Command-line switch error:" + errorKey);
-//
-//        System.out.println("формат ком.строки: имяПрограммы [-r<input-fileName>] [-w<output-fileName>]");
-//	System.out.println("   -?  показать Help файл");
-//	System.out.println("   -r  задать имя входного файла");
-//	System.out.println("   -w  выполнить вывод в указанный файл");
-    }
+    protected void OnUsage(String errorKey){}
+    
     protected SwitchStatus OnSwitch(String key, String keyValue) {
         return SwitchStatus.Error;
     }
@@ -35,8 +28,8 @@ public class ComLineParserBase {
 
             // провера наличия правильного разделителя
             boolean isDelimeter = false;
-            for (int n = 0; !isDelimeter && (n < delimeters.length); n++) {
-                isDelimeter = args[argNum].regionMatches(0,delimeters[n], 0, 1);
+            for (int n = 0; !isDelimeter && (n < delim.length); n++) {
+                isDelimeter = args[argNum].regionMatches(0,delim[n], 0, 1);
             }
             
             if (isDelimeter) {
