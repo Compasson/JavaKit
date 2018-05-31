@@ -12,10 +12,8 @@ public class SimpleParser extends ComLineParserBase {
 	private String InFile;
 	private String OutFile;
 	
-	public SimpleParser(String InFile,String OutFile,String[] keys,String[] delim){
+	public SimpleParser(String[] keys,String[] delim){
 		super(keys,delim);
-		this.InFile=InFile;
-		this.OutFile=OutFile;
 	}
 
 	public String getInFile() {
