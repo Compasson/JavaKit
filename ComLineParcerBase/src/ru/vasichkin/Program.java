@@ -12,6 +12,7 @@ public class Program {
 		
 		String[] ars = {"-rInFileName","-wOutFileName","-?"};
 		sp.Parse(ars);
+		System.out.printf("KeyValue = ", sp.getInFile());
 	}
 
 }

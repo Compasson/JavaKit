@@ -1,13 +1,9 @@
 package ru.vasichkin;
 
-import ru.vasichkin.ComLineParserBase.SwitchStatus;
 
 import static java.lang.System.out;
 
 public class SimpleParser extends ComLineParserBase {
-
-    private String[] keys= {"r","w","?","a","d"};           // ключи
-    private String[] delim= {"/","-"};     // разделители  "/", "-"
 	
 	private String InFile;
 	private String OutFile;
