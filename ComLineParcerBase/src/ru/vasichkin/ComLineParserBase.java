@@ -20,7 +20,7 @@ public class ComLineParserBase {
         return SwitchStatus.Error;
     }
 
-    public Boolean Parse(String[] args) {
+    public final Boolean Parse(String[] args) {
         SwitchStatus ss = SwitchStatus.NoError;	    
 
         int argNum;
@@ -45,9 +45,9 @@ public class ComLineParserBase {
                     ss = SwitchStatus.Error;
                     break;
                 } 
-                else {
-                    ss = OnSwitch(keys[i].toLowerCase(), 
-                         args[argNum].substring(1 + keys[i].length()));
+                else {              	
+                	  ss = OnSwitch(keys[i].toLowerCase(), 
+                         args[argNum].substring(1 + keys[i].length()));              	 
                 }
             }
             else {

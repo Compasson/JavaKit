@@ -10,9 +10,8 @@ public class Program {
 	    String[] delim= {"/","-"};     // разделители  "/", "-"
 		SimpleParser sp = new SimpleParser(keys,delim);
 		
-		String[] ars = {"-rInFileName","-wOutFileName","-?"};
-		sp.Parse(ars);
-		System.out.printf("KeyValue = ", sp.getInFile());
+		sp.Parse(args);
+		System.out.printf("Name InFile = %s,   Name Out File = %s\n", sp.getInFile(),sp.getOutFile());
 	}
 
 }

@@ -1,33 +1,32 @@
 package ru.vasichkin;
 
-
 import static java.lang.System.out;
 
 public class SimpleParser extends ComLineParserBase {
-	
-	private String InFile;
-	private String OutFile;
-	
-	public SimpleParser(String[] keys,String[] delim){
-		super(keys,delim);
+
+	private String inFile;
+	private String outFile;
+
+	public SimpleParser(String[] keys, String[] delim) {
+		super(keys, delim);
 	}
 
 	public String getInFile() {
-		return InFile;
+		return inFile;
 	}
 
 	public void setInFile(String inFile) {
-		InFile = inFile;
+		inFile = inFile;
 	}
 
 	public String getOutFile() {
-		return OutFile;
+		return outFile;
 	}
 
 	public void setOutFile(String outFile) {
-		OutFile = outFile;
+		outFile = outFile;
 	}
-	
+
 	@Override
 	public void OnUsage(String errorKey) {
 		if (errorKey != null)
@@ -38,34 +37,34 @@ public class SimpleParser extends ComLineParserBase {
 		out.println("   -r  задать имя входного файла");
 		out.println("   -w  выполнить вывод в указанный файл");
 	}
-	
+
 	@Override
-    public SwitchStatus OnSwitch(String key, String keyValue) {
-		SwitchStatus ss = SwitchStatus.NoError;	 
-		switch(key) {
-			case "?":
-				ss = SwitchStatus.ShowUsage;
-			case "r":
-				if(keyValue!=null) {
-					this.InFile=keyValue;
-					break;
-				}
-				else {
-					out.println("keyValue = null");
-					ss=SwitchStatus.Error;
-				}
-				break;
-			case "w":
-				if(keyValue!=null) this.OutFile=keyValue;
-				else {
-					out.println("keyValue = null");
-					ss=SwitchStatus.Error;
-				}
-				break;
-			default: out.println("Fail key.");
-				break;
+	public SwitchStatus OnSwitch(String key, String keyValue) {
+		SwitchStatus status = SwitchStatus.NoError;
+		switch (key) {
+		case "?":
+			status = SwitchStatus.ShowUsage;
+		case "r": {
+            if (keyValue.length() < 1) {             
+                System.out.println("Нет имени входного файла.");
+                status = SwitchStatus.Error; 
+      
+            } 
+            else this.inFile = keyValue;
+            break;
 		}
-        return ss;
-    }
+        case "w":   
+            if (keyValue.length() < 1) {
+                System.out.println("Нет имени выходного файла.");
+                status = SwitchStatus.Error; 
+            } 
+            else  this.outFile = keyValue;
+            break;
+		default:
+			out.println("Fail key.");
+			break;
+		}
+		return status;
+	}
 
 }
