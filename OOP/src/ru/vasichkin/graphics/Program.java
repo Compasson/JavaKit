@@ -12,24 +12,31 @@ public class Program {
 		Circle c1;
 		c1=circ.clone();
 		c1.scale(98.65f);
+		Scaleable sc = c1; // ссылка типа интерфейс
+		sc.scale(2f);
+		Circle c2=(Circle)sc;
+		
+		//Shape s2 =new Shape();
+		//s2=c1;
 		
 		System.out.println(c1.toString());
 		
 		Shape.drawscene();
 		
-		//ВАЖНО: Преобразование ссылки , по ссылке родителя доступны только поля и методы родителя, но не дочернего класса
-		Shape s1 =new Shape();
-		s1=c1;
+		/*//ВАЖНО: Преобразование ссылки , по ссылке родителя доступны только поля и методы родителя, но не дочернего класса
+		//Shape s1 =new Shape();
+		//s1=c1;
 		System.out.printf("Цвет обьекта по ссылке с1 = %s\n", s1.color);
 		// Так НЕЛЬЗЯ: s1.x или s1.radius
 		
 		// Обратное преопразование .Ножно контролировать тип ссылки s1 и использовать проверку;
 		if(s1 instanceof Circle) {
-			Circle c2=(Circle)s1;
-			System.out.println(c2.toString());
+			Circle c3=(Circle)s1;
+			System.out.println(c3.toString());
 		}
 		
 		Object o = s1;
+		*/
 		Object o1 = c1;
 		int k=10;
 		o1=k;//boxing двойное преобразование через обертку

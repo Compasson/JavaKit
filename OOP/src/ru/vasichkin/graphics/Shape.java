@@ -3,11 +3,12 @@ package ru.vasichkin.graphics;
 import static java.lang.System.out;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 // Чтобы запретить наследников классу,то
 // final Shape
-public class Shape {
+public  abstract class Shape {
 	
 	/*
 	 *   Access	Level	Modidier	Visibility
@@ -19,7 +20,9 @@ public class Shape {
 	
 	public static final String DEFAULT_COLOR="black";
 	
-	public static ArrayList<Shape> scene = new ArrayList<>();
+	// Лучше ставить List -интерфейс так ка потом может понадобится изменить тип коллекции.
+	//public static List<Shape> scene = new LinkedList<>();
+	public static List<Shape> scene = new ArrayList<>();
 	//drawscene
 	
 	public static void drawscene() {
@@ -40,9 +43,9 @@ public class Shape {
 	public void draw() {
 		out.printf("Shape. Color: %s\n",this.color);
 	}
-	public static Shape create(String color) {
+	/*public static Shape create(String color) {
 		Shape sh = new Shape(color);
 		scene.add(sh);
 		return sh;
-	}
+	}*/
 }

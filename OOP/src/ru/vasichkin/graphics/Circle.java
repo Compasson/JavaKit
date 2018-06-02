@@ -1,8 +1,15 @@
 package ru.vasichkin.graphics;
 
+import java.io.Serializable;
 
-
-public class Circle extends Shape {
+public class Circle extends Shape
+	implements Scaleable, Serializable {
+	//Serializable например перевод обьектов или ссылок с обьектами в байткод
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	public int x;
 	public int y;
@@ -31,9 +38,16 @@ public class Circle extends Shape {
 		setRadius(radius);		
 	}
 
+	@Override
 	public void scale(double d) {
 		//this.radius=this.radius*d;
 		setRadius(getRadius()*d);
+	}
+	
+	@Override
+	public void scale() {
+		//scale(Scaleable.DEFAULT_FACTOR);
+		scale(DEFAULT_FACTOR);
 	}
 	
 	@Override

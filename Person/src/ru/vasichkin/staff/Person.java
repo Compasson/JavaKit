@@ -4,20 +4,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static java.lang.System.out;
+import java.util.Date;
 
 public class Person {
 
 	public String name;
-	public int age;
+	//private int age;
+	private int birthYear;
+
+	public int getAge() {
+		return new Date().getYear()+1900-birthYear;
+	}
+
+	private void setAge(int age) {
+		this.birthYear = new Date().getYear()+1900-age;
+	}
 
 	public static ArrayList<Person> persons = new ArrayList<>();
 	/*
 	 * static { persons=new ArrayList<>(); }
 	 */
 
-	public Person(String name, int age) {
+	protected Person(String name, int age) {
 		this.name = name;
-		this.age = age;
+		this.birthYear = age;
 		// Грабли
 		// list.add(this); ссылкой на обьект который недоконструировался лучше не
 		// использовать
@@ -37,6 +47,6 @@ public class Person {
 	}
 
 	public void show() {
-		out.printf("Person Name = %s, age = %d\n", this.name, this.age);
+		out.printf("Person Name = %s, age = %d\n", this.name, this.birthYear);
 	}
 }

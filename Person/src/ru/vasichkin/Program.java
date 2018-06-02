@@ -33,6 +33,12 @@ public class Program {
 			Person p = Person.create("Pasha",i*10);
 		}
 		Person.showAll();
+		
+		Singleton s1= Singleton.getIntance();
+		Singleton s2= Singleton.getIntance();
+		System.out.println(s1.toString());
+		System.out.println(s2.toString()); //Одинаковый хешкод в конце указывает что обьект один и тот же
+		
 
 	}
 
