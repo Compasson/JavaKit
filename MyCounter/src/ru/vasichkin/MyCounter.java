@@ -9,11 +9,12 @@ public class MyCounter {
         SimpleParser sp=new SimpleParser();  
         sp.Parse(args);
         
-        WordCounter wc=new WordCounter(null,null);
-//        WordCounter wc=new WordCounter(sp.getInFile(), null);
+        System.out.println(sp.getInFile()+"\t"+sp.getOutFile());
+        
+        WordCounter wc=new WordCounter(sp.getInFile(),sp.getOutFile());
         wc.countWords();
         
-        Enumeration keys = wc.getWords().keys();
+        Enumeration<String> keys = wc.getWords().keys();
         while(keys.hasMoreElements()){
            String w=keys.nextElement().toString(); 
            int n= (int)wc.getWords().get(w);
