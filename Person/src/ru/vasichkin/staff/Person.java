@@ -6,7 +6,7 @@ import java.util.Collections;
 import static java.lang.System.out;
 import java.util.Date;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
 	public String name;
 	//private int age;
@@ -35,6 +35,7 @@ public class Person {
 	}
 
 	public static void showAll() {
+		Collections.sort(persons);
 		for (Person p : persons) {
 			p.show();
 		}
@@ -48,5 +49,11 @@ public class Person {
 
 	public void show() {
 		out.printf("Person Name = %s, age = %d\n", this.name, this.birthYear);
+	}
+	
+	@Override
+	public int compareTo(Person p) {
+		//return this.name.compareTo(p.name); // sort by name
+		return this.getAge()-p.getAge();
 	}
 }

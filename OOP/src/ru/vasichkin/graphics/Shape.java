@@ -31,6 +31,15 @@ public  abstract class Shape {
 		}
 	}
 	
+	public static void transferScene(int dx, int dy) {
+		for(Shape s: scene){
+			if(s instanceof Moveable) {
+				Moveable m =(Moveable)s;
+				m.moveBy(dx, dy);
+			}
+		}
+	}
+	
 	public String color;
 	
 	public Shape() {

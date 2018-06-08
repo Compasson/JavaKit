@@ -2,7 +2,7 @@ package ru.vasichkin.graphics;
 
 import static java.lang.System.out;
 
-public class Point extends Shape {
+public class Point extends Shape implements Moveable {
 //Все наследники не должны повторять поля и методы родителя
 // Наследники должны переопределять методы и можно добавлять новые поля
 	public int x;
@@ -27,6 +27,7 @@ public class Point extends Shape {
 	// Одинаковые названия полей делать можно
 	// НО, если поле через лямбда выражения ссылается на какойто метод то ставятся ::
 	//int moveBy;
+	@Override
 	public void moveBy(int dx, int dy) {
 		x+=dx;
 		y+=dy;
@@ -55,4 +56,6 @@ public class Point extends Shape {
 		
 		return new Point(this.x,this.y,this.color);
 	}
+	
+
 }

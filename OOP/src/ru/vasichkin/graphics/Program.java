@@ -56,6 +56,9 @@ public class Program {
 		 * 
 		 */
 		c1.setRadius(78.32f);
+		
+		Shape.transferScene(2,2);
+		Shape.drawscene();
 
 	}
 

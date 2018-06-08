@@ -3,7 +3,7 @@ package ru.vasichkin.graphics;
 import java.io.Serializable;
 
 public class Circle extends Shape
-	implements Scaleable, Serializable {
+	implements Scaleable,Moveable, Serializable {
 	//Serializable например перевод обьектов или ссылок с обьектами в байткод
 	
 	/**
@@ -61,5 +61,10 @@ public class Circle extends Shape
 	@Override
 	public Circle clone() {
 		return new Circle(this.x,this.y,getRadius(),this.color);
+	}
+	@Override
+	public void moveBy(int dx, int dy) {
+		this.x+=dx;
+		this.y+=dy;
 	}
 }
