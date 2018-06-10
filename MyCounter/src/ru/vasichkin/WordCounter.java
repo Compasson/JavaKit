@@ -25,8 +25,14 @@ public class WordCounter {
     private String outFile;
 
 	static String testString = "hello world, hello";
+	
+	public class Inner<T extends Integer> {		
+		public void put(String s, T t) {
+			words.put(s, t);
+		}
+	}
     
-    private Hashtable<String,Integer> words = new Hashtable<String,Integer>();
+    private Hashtable<String,Integer> words = new Hashtable<>();
 
     public WordCounter(String inFile, String outFile) {
         setInFile(inFile);
@@ -38,6 +44,7 @@ public class WordCounter {
     }
     
     public void countWords(){
+    	Inner i = new Inner();
         try (BufferedReader br = new BufferedReader(getReader())) {
             for(String line = br.readLine();line != null; line = br.readLine()) {
                 StringTokenizer st = new StringTokenizer(line);
@@ -45,9 +52,10 @@ public class WordCounter {
                     String token = st.nextToken();
                     token = token.replaceAll("[^a-zA-Zà-ÿÀ-ß]", "");
                     if(!this.words.containsKey(token)) {
-                        this.words.put(token, 1);
+                        this.words.put(token, 1);                   	
                     } else {
-                        this.words.put(token,(int)this.words.get(token)+1);
+                        //this.words.put(token,(int)this.words.get(token)+1);
+                    	i.put(token, this.words.get(token)+1);
                     }
                 }
             }

@@ -1,11 +1,14 @@
 package ru.specialist;
+
+import java.util.Comparator;
+
 /*
  * 		Вложеные классы(nested):
  * 				
  * 			1 - вариант статический класс(nested), его частный случай это
  * 				(inner) внутренний(без static), его частный случай это					
- * 				локальный клас, его частный случай это 
- * 				анонимный клас
+ * 				локальный клас(внутри метода внешнего класса), его частный случай это 
+ * 				анонимный клас(это класс без имени и созданием одного единственного обьекта)
  * 
  * 
  * 		Зачем нужны вложенные класссы(пример в проекте Invoice видео Spesialist 5_2):
@@ -38,7 +41,34 @@ public class Outer {
 		}
 	}
 	
+	
+	public Comparator<Integer> getComparator(){
+		// Локальный класс внутри метода. Чтобы вынести ссылку на обьект локального класса, используем интерфейс, который реализует этот локальный класс
+		/*class MyComparator implements Comparator<Integer>{ //Comparator сравнивает 2 параметра , а Comparable сравнивает this с параметром
+			@Override
+			public int compare(Integer x, Integer y) {
+				return x-y;
+			}		
+		}
+		Comparator<Integer> mc = new MyComparator();*/
+		
+		// Анонимный класс (в java 8 с помощью лямда выражений можно упростить всю эту констукцию)
+		Comparator<Integer> mc = new  Comparator<Integer>(){ // сразу создается обьект аноннимного класса и описывается класс
+			public int compare(Integer x, Integer y) {
+				return x-y;
+			}		
+		};
+		return mc;
+	}
+
+	public boolean isGreater(int x) {	
+		return getComparator().compare(data, x) > 0;
+	}
+	
+	
+	
 	private int data;
+	
 
 	public Outer(int data) {
 		super();
