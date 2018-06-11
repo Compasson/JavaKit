@@ -2,6 +2,7 @@ package ru.vasichkin.staff;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import static java.lang.System.out;
 import java.util.Date;
@@ -34,8 +35,19 @@ public class Person implements Comparable<Person> {
 		// »сользуем метод create
 	}
 
+	public final static Comparator<Person> byAge =
+			(p1,p2)->p1.getAge()-p2.getAge();
+	
 	public static void showAll() {
-		Collections.sort(persons);
+		// Collections.sort(persons); сортировка по умалчанию
+		// —ортировка по разным пол€м с ипользованием л€мбда выражений
+		Collections.sort(persons,
+				(p1,p2)->p1.name.compareTo(p2.name)
+		);
+		
+		// —ортировка по имени использу€ константу выше
+		Collections.sort(persons, byAge);
+		
 		for (Person p : persons) {
 			p.show();
 		}

@@ -53,7 +53,7 @@ public class Outer {
 		Comparator<Integer> mc = new MyComparator();*/
 		
 		// Анонимный класс (в java 8 с помощью лямда выражений можно упростить всю эту констукцию)
-		Comparator<Integer> mc = new  Comparator<Integer>(){ // сразу создается обьект аноннимного класса и описывается класс
+		Comparator<Integer> mc = new  Comparator<Integer>(){ // сразу создается обьект(на это указывают скобки) аноннимного класса и описывается класс в скобках {}. Вместо интерфейса можно написать название Класса, тогда создается наследник.
 			public int compare(Integer x, Integer y) {
 				return x-y;
 			}		
@@ -77,6 +77,7 @@ public class Outer {
 
 	public int getData() {
 		
+		Nested n;
 		
 		Inner i = new Inner(); //Внешний класс может создавать обьекты внутреннего класса
 		i.increment();
