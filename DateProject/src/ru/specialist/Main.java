@@ -21,7 +21,7 @@ public class Main {
 		
 		out.println(now);
 		
-		out.println(now.toLocaleString());
+		out.println(now.toLocaleString()); //deprecated
 		
 		out.println(now.getYear()+1900);
 		out.println(now.getDay());
