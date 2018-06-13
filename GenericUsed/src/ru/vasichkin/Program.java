@@ -1,22 +1,21 @@
 package ru.vasichkin;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		GalogenLamp gl = new GalogenLamp();
-		ReadOnly<Lamp> rn = new ReadOnly<>();
+		gl.setLumen(500);
+		ReadOnly<GalogenLamp> rn1 = new ReadOnly<>(gl);
 		
-		GalogenLamp gl = new GalogenLamp();
-		CouldLightLamp cll = new CouldLightLamp();
-		gl.
-		
-		listLamp.add(gl);
-		
-	}
 
+		CouldLightLamp cll = new CouldLightLamp();
+		cll.setLumen(1000);
+		ReadOnly<CouldLightLamp> rn2 = new ReadOnly<>(cll);
+		
+		
+		rn1.getData().LightRoom();
+		rn2.getData().LightRoom();
+	}
 }
