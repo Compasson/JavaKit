@@ -21,7 +21,7 @@ public class Program {
 		
 		Lamp lamp = new Lamp();
 		TvSet tv = new TvSet();
-		AirCondition ac = new AirCondition(); // Внимание
+		AirCondition ac = new AirCondition(); // Внимание AirCondition не реализует интерфейс Electricitylistener
 		
 		sw.addElecricityListener(lamp);
 		sw.addElecricityListener(tv);
@@ -42,6 +42,8 @@ public class Program {
 		//sw.addElecricityListener(s->ac.on(s)); можно упростить в случае одинаковых сигнатур
 		sw.addElecricityListener(ac::on); // Метод on без скобочек, так как он вызывается не в данный момент, а потом в теле метода switchON
 		
+		sw.switchOn();
+		sw.removeElecricityListener(tv);
 		sw.switchOn();
 	}
 
