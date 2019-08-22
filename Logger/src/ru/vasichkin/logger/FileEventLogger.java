@@ -15,17 +15,29 @@ public class FileEventLogger implements EventLogger {
 	private FileOutputStream fos = null;
 	private PrintWriter writer;
 	
+	
+	
+	public FileEventLogger() {
+		super();
+		this.file = new File(filename);
+		if(!this.file.exists())
+			try {
+				this.file.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
 	@Override
 	public void logEvent(Event event) {
 		
-		this.createFile();
-		
 		try {
-			this.fos = new FileOutputStream(file);
-			this.writer = new PrintWriter(fos); 
+			this.fos = new FileOutputStream(file, true);
+			this.writer = new PrintWriter(fos);
 			writer.printf("%s", event.toString());
 			writer.close();
-			System.out.println("Writing succsess!");
+			System.out.println("Writing in file succsess!" + event.toString());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,20 +51,6 @@ public class FileEventLogger implements EventLogger {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}
-		
-		
-	}
-	
-	public void createFile() {
-		this.file = new File(filename);
-		if(!this.file.exists())
-			try {
-				this.file.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	}
-	
+		}	
+	}	
 }

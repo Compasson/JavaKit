@@ -2,7 +2,7 @@ package ru.vasichkin.logger;
 
 import java.util.Date;
 
-public class Event {
+public class Event implements EventLogger {
 
 	private Date date;
 	private String message;
@@ -17,8 +17,18 @@ public class Event {
 		return message;
 	}
 
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Mesage: %1$s  Data and Time:  %2$tY %2$td %2$tb %2$tT. ", message, date);
+		return String.format("Message: %1$-30s  Data and Time:  %2$tY %2$td %2$tb %2$tT. \n", message, date);
+	}
+
+	@Override
+	public void logEvent(Event event) {
+		
+		System.out.println(event.toString());
 	}
 }
