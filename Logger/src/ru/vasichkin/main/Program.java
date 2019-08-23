@@ -21,7 +21,7 @@ public class Program {
 	
 	listEvent.add(cel);
 	listEvent.add(fel);
-	listEvent.add(e -> System.out.println("Åâåíò ñîçäàí íå áûë, ïîýòîìó ïðîñòî ñîîáøåíèå"));
+	listEvent.add(e -> System.out.println("Ð•Ð²ÐµÐ½Ñ‚ ÑÐ¾Ð·Ð´Ð°Ð½ Ð½Ðµ Ð±Ñ‹Ð», Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ ÑÐ¾Ð¾Ð±ÑˆÐµÐ½Ð¸Ðµ"));
 	listEvent.stream().forEach(e -> e.logEvent(event));
 	
 	//----------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ public class Program {
 	public void logEvents(EventLogger elogger) {
 				
 		for(int i=1; i<=100; i++) {
-			Event e = new Event("Ýâåíò íîìåð " + String.valueOf(i));
+			Event e = new Event("Ð­Ð²ÐµÐ½Ñ‚ Ð½Ð¾Ð¼ÐµÑ€:  " + String.valueOf(i));
 			elogger.logEvent(e);
 		}
 	}
