@@ -26,7 +26,8 @@ public class FileEventLogger implements EventLogger {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+		}
+		
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class FileEventLogger implements EventLogger {
 			this.writer = new PrintWriter(fos);
 			writer.printf("%s", event.toString());
 			writer.close();
-			System.out.println("Writing in file succsess!" + event.toString());
+			System.out.println("Writing in file succsess!");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

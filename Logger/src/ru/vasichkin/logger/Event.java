@@ -23,7 +23,7 @@ public class Event implements EventLogger {
 
 	@Override
 	public String toString() {
-		return String.format("Message: %1$-30s  Data and Time:  %2$tY %2$td %2$tb %2$tT. \n", message, date);
+		return String.format("Message: %1$-50s  Data and Time:  %2$tY %2$td %2$tb %2$tT. \n", message, date);
 	}
 
 	@Override

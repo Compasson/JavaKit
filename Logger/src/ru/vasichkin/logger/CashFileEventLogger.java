@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CashFileEventLogger extends FileEventLogger {
 
-	private final int CASHSIZE = 5;
+	private final static int CASHSIZE = 5;
 	
 	private List<Event> listLoggers = new ArrayList<>(CASHSIZE);
 	
@@ -22,7 +22,7 @@ public class CashFileEventLogger extends FileEventLogger {
 	}
 	
 	public void writeLogEvent() {
-		listLoggers.forEach(super::logEvent); //listLoggers.forEach(event->super.logEvent(event));
+		listLoggers.forEach(super::logEvent); //Именно здесь используется наследование. Метод logEvent именно от класса FileEventLogger. listLoggers.forEach(event->super.logEvent(event));
 		listLoggers.clear();
 		System.out.println("CASH CLEARED!");
 	}
