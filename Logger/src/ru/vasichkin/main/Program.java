@@ -20,7 +20,8 @@ public class Program {
 	public static void main(String[] args) {
 	
 	
-		
+	//------------------------------------------------------------
+	// Использование generics. Квадрат, круг,треугольник. И их методы нарисовать, уменьшить, увеличить. 
 		
 		
 		
@@ -28,7 +29,7 @@ public class Program {
 	//Пример использования сообшений с типом INFO, WARNING, ERROR замапиным в HashTable
 	Program p = new Program();
 	p.logEvents();
-	cfl.writeLogEvent();
+	if(!cfl.getListLoggers().isEmpty()) cfl.writeLogEvent();
 	
 	
 	
